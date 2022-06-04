@@ -24,7 +24,6 @@ route.post('/',async (req,res)=>{
         const newUser = await User.create({
             username
           });
-          delete newUser["__v"];
           res.status(200).json(newUser);
     }catch(error){
         console.error(error);
@@ -37,13 +36,7 @@ route.get('/', async (req,res)=>{
         // Retrieve All users from our Database
         const allUser = await User.find();
         if(allUser){
-            const usersArray = allUser.map((user) => {
-                delete user["__v"];
-                user["_id"].toString();
-                return user;
-              });
-            console.log(usersArray);
-            res.status(200).send(usersArray);
+            res.status(200).send(allUser);
         }else{
             res.status(404).json({error: 'No User Found'});
         }

@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/users', userController);
 
-//app.use('/api/users', exerciseController);
+app.use('/api/users', exerciseController);
 
 //app.use('/api/users', logController);
 
