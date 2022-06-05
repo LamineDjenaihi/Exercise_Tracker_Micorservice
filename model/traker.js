@@ -14,7 +14,7 @@ const exerciseSchema = new mongoose.Schema({
         required: true,
         min: [1, 'Duration too short, at least 1 minute']
     },
-    date: String,
+    date: Date,
     userId: {type: mongoose.Types.ObjectId , required: true  }
 });
 const User = mongoose.model("User", userSchema);

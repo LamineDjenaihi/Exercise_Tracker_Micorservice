@@ -5,7 +5,6 @@ const bodyParser = require('body-parser');
 require('dotenv').config({path: './sample.env'});
 const userController = require('./Controller/userController');
 const exerciseController = require('./Controller/exerciseController');
-const logController = require('./Controller/logController');
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -18,7 +17,6 @@ app.use('/api/users', userController);
 
 app.use('/api/users', exerciseController);
 
-//app.use('/api/users', logController);
 
 const listener = app.listen(process.env.PORT || 3000, () => {
   console.log('Your app is listening on port ' + listener.address().port)
